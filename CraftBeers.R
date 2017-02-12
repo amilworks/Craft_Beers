@@ -44,6 +44,7 @@ mf <- ggplot(beers_pop, aes(x = style, fill = style)) +
         geom_bar() +
         xlab("Style of Beer") +
         ggtitle("Most Common Styles of Beer from the List") +
+        theme_minimal() +
         theme(axis.text.x = element_text(angle = 15), legend.position = "none")
 mf
 
