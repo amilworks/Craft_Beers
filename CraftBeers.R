@@ -1,12 +1,12 @@
-#Importing craft beers and breweries dataframes from Kaggle
-beers <- read.csv("C://Users/bdaet/Downloads/beers.csv")
-
 #Importing ggplot2 and plotly libraries to create visual representations of the data
 library(ggplot2)
 library(plotly)
 #importing the plyr library to use the count function and the dplyr library to more easily aggregate data
 library(plyr)
 library(dplyr)
+
+#Importing craft beers and breweries dataframes from Kaggle
+beers <- read.csv("C://Users/bdaet/Downloads/beers.csv")
 
 #Since I plan on comparing the beers IBU (bitterness rating) to their ABV (alcohol content) I need to create
 ## a subset that only contains beers with a listed IBU rating
