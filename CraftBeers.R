@@ -1,6 +1,5 @@
 #Importing craft beers and breweries dataframes from Kaggle
 beers <- read.csv("C://Users/bdaet/Downloads/beers.csv")
-breweries <- read.csv("C://Users/bdaet/Downloads/breweries.csv")
 
 #Importing ggplot2 and plotly libraries to create visual representations of the data
 library(ggplot2)
@@ -42,7 +41,7 @@ beers_pop <- beers_ibu[beers_ibu$style == pop$x[1] | beers_ibu$style == pop$x[2]
 #quick histogram plot of the 6 most frequently occuring beer styles from the dataset (only including the beers with
 # ibu information given)
 mf <- ggplot(beers_pop, aes(x = style, fill = style)) +
-        geom_bar() +
+        geom_bar(alpha = 0.65, color = "black") +
         xlab("Style of Beer") +
         ggtitle("Most Common Styles of Beer from the List") +
         theme_minimal() +
@@ -71,8 +70,9 @@ ggplotly(gd)
 #finding the mean, maximum and minimum ibu and abv for the 6 most common styles of beer
 avgs <- beers_pop %>%
         group_by(style) %>%
-        summarise(avg_ibu = mean(ibu),
-                  avg_abv = mean(abv))
+        summarise(avg_ibu = round(mean(ibu), digits = 2),
+                  avg_abv = round(mean(abv) * 100, digits = 2)) %>%
+        arrange(desc(avg_abv))
              
 avgs
 
