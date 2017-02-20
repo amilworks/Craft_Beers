@@ -5,8 +5,8 @@ library(ggmap)
 library(plotly)
 
 #importing the breweries and popular beers dataframes that I modified
-breweries2 <- read.csv("C://Users/bdaet/Desktop/myProjects/breweries2.csv")
-beers_pop <- read.csv("C://Users/bdaet/Desktop/myProjects/popularbeers.csv")
+breweries2 <- read.csv("C://Users/bdaet/Desktop/myProjects/Craft Beer CSV Files/breweries2.csv")
+beers_pop2 <- read.csv("C://Users/bdaet/Desktop/myProjects/Craft Beer CSV Files/popularbeers.csv")
 
 #since I plan to merge the two dataframes and beers_pop already has a "name" column I need to change the names
 #column in breweries2 to "brewery" instand
@@ -15,7 +15,7 @@ breweries2 <- breweries2 %>%
                   select(-name, -X)
 
 #merging the dataframes keeping only the breweries that brew at least one of the 6 most common styles of beer
-complete <- join(x = beers_pop, y = breweries2,
+complete <- join(x = beers_pop2, y = breweries2,
                   by = "brewery_id", type = "left")
 
 #removing unneccesary columns
