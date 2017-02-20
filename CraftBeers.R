@@ -36,6 +36,8 @@ pop <- ct[ct$freq > 50,]
 beers_pop <- beers_ibu[beers_ibu$style == pop$x[1] | beers_ibu$style == pop$x[2] | beers_ibu$style == pop$x[3] |
                          beers_ibu$style == pop$x[4] | beers_ibu$style == pop$x[5] | beers_ibu$style == pop$x[6] ,]
 
+write.csv(beers_pop, file = "popularbeers.csv")
+
 
 
 #quick histogram plot of the 6 most frequently occuring beer styles from the dataset (only including the beers with
@@ -45,7 +47,7 @@ mf <- ggplot(beers_pop, aes(x = style, fill = style)) +
         xlab("Style of Beer") +
         ggtitle("Most Common Styles of Beer from the List") +
         theme_minimal() +
-        theme(axis.text.x = element_text(angle = 15), legend.position = "none")
+        theme(axis.text.x = element_text(size = 8), legend.position = "none")
 mf
 
 #creating a scatterplot comparing ibu and abv using only the data on the 6 most common beer styles
@@ -67,14 +69,16 @@ gd <- ggplot(beers_pop, aes(x = ibu, y = abv, col = style)) +
         ylab("ABV (Alcohol Content)") 
 ggplotly(gd)
 
-#finding the mean, maximum and minimum ibu and abv for the 6 most common styles of beer
+#finding the mean ibu and abv for the 6 most common styles of beer
 avgs <- beers_pop %>%
-        group_by(style) %>%
-        summarise(avg_ibu = round(mean(ibu), digits = 2),
-                  avg_abv = round(mean(abv) * 100, digits = 2)) %>%
-        arrange(desc(avg_abv))
+          group_by(style) %>%
+          summarise(avg_ibu = round(mean(ibu), digits = 2),
+                    avg_abv = round(mean(abv) * 100, digits = 2)) %>%
+          arrange(desc(avg_abv))
              
 avgs
+
+
 
 
 
