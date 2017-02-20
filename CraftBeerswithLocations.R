@@ -2,6 +2,7 @@
 library(dplyr)
 library(ggplot2)
 library(ggmap)
+library(plotly)
 
 #importing the breweries and popular beers dataframes that I modified
 breweries2 <- read.csv("C://Users/bdaet/Desktop/myProjects/breweries2.csv")
@@ -46,6 +47,7 @@ top6bar <- ggplot(top6, aes(x = state, y = count, col = state)) +
                 geom_bar(stat = "identity", alpha = 0.65) +
                 xlab("State") +
                 ylab("Beers Produced") +
+                ggtitle("States that Produce the Most Beers (From the 6 Most Common Beer Styles)") +
                 theme_minimal() +
                 theme(legend.position = "none")
 ggplotly(top6bar)
