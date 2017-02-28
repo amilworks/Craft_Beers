@@ -1,4 +1,5 @@
 #importing necessary libraries
+library(plyr)
 library(dplyr)
 library(ggplot2)
 library(ggmap)
@@ -43,8 +44,8 @@ top6 <- filter(by_state, count >= 30)
 top6$state <- ordered(top6$state, levels = c(" CA", " CO", " OR", " TX", " IN", " WA"))
 
 #creating a bar plot of the number of beers each of these states produced
-top6bar <- ggplot(top6, aes(x = state, y = count, col = state)) +
-                geom_bar(stat = "identity", alpha = 0.65) +
+top6bar <- ggplot(top6, aes(x = state, y = count)) +
+                geom_bar(stat = "identity", alpha = 0.65, color = "turquoise") +
                 xlab("State") +
                 ylab("Beers Produced") +
                 ggtitle("States that Produce the Most Beers (From the 6 Most Common Beer Styles)") +
@@ -71,5 +72,25 @@ by_style_bar <- ggplot(by_style, aes(x = state, y = count, fill = style)) +
                     theme(legend.position = "none")
 ggplotly(by_style_bar)
 
+# getting a map of the United States to plot the locations of all the breweries
+# this was the example US map from the plotly documentation page
+g <- list(
+  scope = "usa",
+  projection = list(type = "albers usa"),
+  showland = TRUE,
+  landcolor = toRGB("gray95"),
+  subunitcolor = toRGB("gray85"),
+  countrycolor = toRGB("gray85"),
+  countrywidth = 0.5,
+  subunitwidth = 0.5
+)
+
+#Map of all the breweries on the list
+brewMap <- plot_geo(breweries2, lat = ~lat, lon = ~lon,
+                    alpha = 0.65,
+                    text = ~brewery) %>%
+           add_markers() %>%
+           layout(title = "Brewery Map", geo = g)
+brewMap
 
 
