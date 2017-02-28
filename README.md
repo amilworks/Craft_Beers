@@ -2,5 +2,5 @@
 We will explore the dataset Craft Beers.
 
 
-## Here's a visual 
-![alt-image](Craft Beer Images/Comparing IBU and ABV by Style of Beer.png)
+## Here's a map of all the breweries from the dataset
+![alt-image](Craft_Beer_Images/Brewery Map.png)
