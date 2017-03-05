@@ -7,6 +7,7 @@
 * Required Packages
 * Brewery Location Map
 * Initial Analysis
+* Looking at Only the Most Common Styles of Beer
 
 ## Contributors
 * Bryan Daetz
@@ -27,4 +28,7 @@ The goal of this project is to explore the Craft Beers [dataset] (https://www.ka
 ![alt-image](Craft_Beer_Images/Brewery Map.png)
 
 ## Initial Analysis
+First we we want to take a look at all the beers with a listed IBU value in the data set.  Initially, there appears to be a slight correlation between IBU and ABV, but the grouping of the data points is far from ideal.  There is too much variance to conclusively say that a higher IBU rating corresponds to a higher ABV rating.
 ![alt-image](Craft_Beer_Images/Comparing IBU and ABV.png)
+
+## Looking at Only the Most Common Styles of Beer
