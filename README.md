@@ -40,3 +40,13 @@ Now let's see if we can find more definitive trends by focusing only on these st
 
 This graph is still more cluttered than we would like.  It might help to try a facet wrap plot and look at graphs of each style individually.
 ![alt-image](Craft_Beer_Images/Comparing IBU and ABV by Style of Beer.png)
+
+
+| Style  | Avg IBU | Avg ABV | 
+|--------|--------|----------|
+| American Amber / Red Ale | 36.30 | 5.72 %|
+| American Blonde Ale | 20.98 | 5.01 % |
+| American Double / Imperial IPA | 93.32 | 8.78 % | 
+| American IPA |  67.63 | 6.48 % |
+| American Pale Ale (APA) | 44.94 | 5.50 % |
+| American Pale Wheat Ale | 20.69 | 4.76 % |
