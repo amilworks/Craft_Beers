@@ -5,6 +5,8 @@
 * Contributors
 * Abstract
 * Required Packages
+* Brewery Location Map
+* Initial Analysis
 
 ## Contributors
 * Bryan Daetz
@@ -21,5 +23,8 @@ The goal of this project is to explore the Craft Beers [dataset] (https://www.ka
 * plotly
 
 
-## Here's a map of all the breweries from the dataset
+## Brewery Location Map
 ![alt-image](Craft_Beer_Images/Brewery Map.png)
+
+## Initial Analysis
+![alt-image](Craft_Beer_Images/Comparing IBU and ABV.png)
